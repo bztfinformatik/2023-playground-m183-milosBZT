@@ -1,0 +1,62 @@
+@startuml Schedule
+
+ class Period {
+   + id
+   + start_time
+   + end_time
+   + duration
+ }
+
+ class Class {
+   + id
+   + name
+ }
+
+class Person {
+   + id
+   + name
+   + surname
+   + address
+   + birthdate
+}
+
+class Teacher {
+  + id
+  + name
+}
+
+ class Student {
+   + id
+   + name
+   + grade_level
+ }
+
+ class Room {
+   + id
+   + name
+   + capacity
+ }
+
+ class Course {
+   + id
+   + name
+ }
+
+ class Schedule {
+   + id: pk
+   + period_id: fk
+   + teacher_id: fk
+   + room_id: fk
+   + course_id: fk
+   + class_id: fk
+ }
+
+ Period ||--o{ Schedule
+ Class ||--o{ Schedule
+ Teacher ||--o{ Schedule
+ Room }|--o{ Schedule
+ Course ||--o{ Schedule
+ Class }|--|{ Student
+ Schedule }|--|{ Student
+
+ @enduml

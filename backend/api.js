@@ -13,13 +13,13 @@ const routes = require("./routes/main");
 // get constants
 const { STATIC_DIR } = require("./util/const");
 
+const {User, Posting, Vote} = require('./util/db.js');
 
 
 //
 // create express object (basicly a server object listening to requests)
 //
 const api = express();
-
 
 // initialize body-parser for JSON-format
 api.use(express.json());
@@ -54,7 +54,8 @@ api.use((err, req, res, next) => {
   });
 });
 
+
 //
 // start server
 //
-api.listen(3000);
+api.listen(3010);
